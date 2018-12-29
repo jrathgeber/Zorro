@@ -52,10 +52,8 @@ function tradeTrend()
 	} 
 		
 		//plot("BAND",*MMI_Smooth,NEW,BLUE);	
-		
 		//plot("Trend",*Trend,NEW,BLACK);	
-
-		
+	
 		
 }
 
@@ -70,7 +68,7 @@ function run()
 	DataSplit = 50;
 	
 	setf(TrainMode,PEAK);
-	
+	setf(PlotMode,PL_ALL+PL_FINE+PL_FILE);
 	set(PLOTNOW);
 	
 	PlotScale = 8;

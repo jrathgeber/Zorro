@@ -2,7 +2,7 @@
 
 function tradeCounterTrend()
 {
-	TimeFrame = 1;
+	TimeFrame = 4;
 	vars Price = series(price());
 	vars Filtered = series(BandPass(Price,optimize(30,25,35),0.5));
 	vars Signal = series(Fisher(Filtered,500));
@@ -42,16 +42,15 @@ function run()
 	//if (Train) set(PARAMETERS+SKIP3);  			// generate and use optimized parameters
 	//if (Test) set(PARAMETERS+SKIP1+SKIP2);  	// generate and use optimized parameters
 	
-	set(PARAMETERS+PRELOAD);
+	set(PARAMETERS+PRELOAD+LOGFILE+PLOTNOW);
 	setf(PlotMode,PL_ALL+PL_FINE+PL_FILE);
-	set(PLOTNOW);
-	
+
 	//DataSplit = 75;
 	
 	NumCores = 2;										// use multiple cores (Zorro S only) all my cores !
-	BarPeriod = 240;									// 1 hour bars
+	BarPeriod = 60;									// 1 hour bars
 	LookBack = 2000;									// needed for Fisher()
-	StartDate = 2010;
+	StartDate = 2005;
 	EndDate = 2018; 									// fixed simulation period
 	NumWFOCycles = 10; 								// activate WFO
 	NumSampleCycles = 4;
@@ -74,5 +73,7 @@ function run()
 	
 	PlotWidth = 600;
 	PlotHeight1 = 300;
-	set(TESTNOW+LOGFILE);
+	set(TESTNOW);
 }
+
+

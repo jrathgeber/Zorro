@@ -8,6 +8,9 @@ function run()
 	
 	set(PARAMETERS+FACTORS+LOGFILE);  				// generate and use optimized parameters and factors
 	
+	setf(PlotMode,PL_ALL+PL_FINE+PL_FILE);
+	set(PLOTNOW);
+	
 	//set(PARAMETERS+PRELOAD);
 	
 	DataSplit = 0;

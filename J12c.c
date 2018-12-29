@@ -73,6 +73,8 @@ function run()
 	
 	set(PLOTNOW);
 	
+	setf(PlotMode,PL_ALL+PL_FINE+PL_FILE);
+	
 	PlotScale = 8;
 	PlotWidth = 2000;
 	PlotHeight1 = 700;
