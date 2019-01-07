@@ -3,6 +3,7 @@
 function tradeCounterTrend()
 {
 	TimeFrame = 1;
+	
 	vars Price = series(price());
 	vars Filtered = series(BandPass(Price,optimize(30,25,35),0.5));
 	vars Signal = series(Fisher(Filtered,500));
@@ -11,10 +12,18 @@ function tradeCounterTrend()
 	Stop = optimize(4,2,10) * ATR(100);
 	Trail = 4*ATR(100);
 	
-	if(crossUnder(Signal,-Threshold)) 
+	if(crossUnder(Signal,-Threshold)) {
 		enterLong(1000); 
-	else if(crossOver(Signal,Threshold)) 
+		plot("Valley",*Signal,TRIANGLE,GREEN);
+	}
+	else if(crossOver(Signal,Threshold)) {
 		enterShort(1000);
+		plot("Peak",*Signal,TRIANGLE,RED);
+	}
+	
+	plot("Filtered",*Filtered,NEW,BLACK);
+	plot("Signal",*Signal,NEW,BLACK);	
+	
 }
 
 function tradeTrend()
@@ -32,8 +41,10 @@ function tradeTrend()
 	if(falling(MMI_Smooth)) {
 		if(valley(Trend))
 			enterLong(100);
+			//plot("Valley",*Signal,TRIANGLE,GREEN);
 		else if(peak(Trend))
 			enterShort(100);
+			//plot("Peak",*Signal,TRIANGLE,RED);
 	}
 }
 
@@ -47,6 +58,11 @@ function run()
 	set(PLOTNOW);
 	
 	//DataSplit = 75;
+
+	PlotScale = 8;
+	PlotWidth = 2000;
+	PlotHeight1 = 700;
+	PlotHeight2 = 200;
 	
 	NumCores = 2;										// use multiple cores (Zorro S only) all my cores !
 	BarPeriod = 240;									// 1 hour bars
@@ -72,7 +88,6 @@ function run()
 			tradeCounterTrend();
 	}
 	
-	PlotWidth = 600;
-	PlotHeight1 = 300;
+
 	set(TESTNOW+LOGFILE);
 }
