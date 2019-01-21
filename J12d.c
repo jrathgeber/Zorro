@@ -1,5 +1,6 @@
 // Workshop 6_1: Portfolio trading ///////////////////
 
+// Countertrend in Body
 
 function run()
 {
@@ -28,7 +29,7 @@ function run()
 	LookBack = 2000;									// needed for Fisher()
 	StartDate = 2010;
 	
-	EndDate = 2018; 									// fixed simulation period
+	EndDate = 2019; 									// fixed simulation period
 	NumWFOCycles = 10; 								// activate WFO
 	NumSampleCycles = 4;
 	

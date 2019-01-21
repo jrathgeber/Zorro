@@ -51,7 +51,7 @@ function run()
 	BarPeriod = 60;									// 1 hour bars
 	LookBack = 2000;									// needed for Fisher()
 	StartDate = 2005;
-	EndDate = 2018; 									// fixed simulation period
+	EndDate = 2019; 									// fixed simulation period
 	NumWFOCycles = 10; 								// activate WFO
 	NumSampleCycles = 4;
 	

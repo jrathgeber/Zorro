@@ -1,42 +1,46 @@
-// Workshop 6_1: Portfolio trading ///////////////////
+/* 
 
-// Counter Trend Only
+	SFa.c
+
+	Super Fit USD/CAD
+
+	Counter Trand Only
+
+	Jason P Rathgeber
+	
+*/
 
 function tradeCounterTrend()
 {
-	
-	
-	TimeFrame = 1;
+
+	TimeFrame = 4;
 	
 	vars Price = series(price());
-	vars Filtered = series(BandPass(Price,optimize(30,10,100,1),0.5));
+	vars Filtered = series(BandPass(Price,optimize(12,8,14),0.5));
 	vars Signal = series(Fisher(Filtered,500));
-	var Threshold = optimize(0.39,0.3,1.5,0.1);
+	var Threshold = optimize(0.4,0.3,0.6);
 	
-	Stop = optimize(4,2,10, 1) * ATR(100);
-	Trail = 1*ATR(150);
+	Stop = optimize(1,1,6) * ATR(100);
+	Trail = .1*ATR(100);
+	//Trail = 500;
 	
 	if(crossUnder(Signal,-Threshold)) {
-		enterShort(1000); 
+		enterLong(); 
 		plot("Valley",*Signal,TRIANGLE,GREEN);
 	}
 	else if(crossOver(Signal,Threshold)) {
-		enterLong(1000);
+		enterShort();
 		plot("Peak",*Signal,TRIANGLE,RED);
 	}
 			
 	plot("Filtered",*Filtered,NEW,BLACK);
-	
 	plot("Signal",*Signal,NEW,BLACK);	
-	
-	
 	
 }
 
 function tradeTrend()
 {
-	
-	
+	/*
 	
 	TimeFrame = 1;
 	vars Price = series(price());
@@ -64,7 +68,7 @@ function tradeTrend()
 		
 		plot("Trend",*Trend,NEW,BLACK);	
 
-			
+		*/
 		
 }
 
@@ -74,11 +78,11 @@ function run()
 	//if (Test) set(PARAMETERS+SKIP1);  		// generate and use optimized parameters					// test on thrid week (skip 1 and 2)
 	//if (Test) set(PARAMETERS+SKIP1+SKIP2);  // generate and use optimized parameters					// test on thrid week (skip 1 and 2)
 	//set(PARAMETERS+LOGFILE);  						// generate and use optimized parameters and factors
-	//set(PARAMETERS+PRELOAD);
 	
-	DataSplit = 75;
+	//set(PARAMETERS);
+	//DataSplit = 75;
 	
-	setf(TrainMode,PEAK);
+	//setf(TrainMode);
 	
 	set(PLOTNOW);
 	
@@ -95,8 +99,9 @@ function run()
 	StartDate = 2017;
 	
 	EndDate = 2019; 									// fixed simulation period
-	NumWFOCycles = 10; 								// activate WFO
-	NumSampleCycles = 4;
+	
+	//NumWFOCycles = 10; 								// activate WFO
+	//NumSampleCycles = 4;
 	
 	if(ReTrain) {
 		UpdateDays = -1;								// update price data from the server 
@@ -115,8 +120,6 @@ function run()
 		else if(Algo == "CNTR") 
 			tradeCounterTrend();
 	}
-
-	
 
 	set(TESTNOW+LOGFILE);
 }
