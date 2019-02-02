@@ -85,6 +85,11 @@ function run()
 	//set(PARAMETERS);
 	//DataSplit = 75;
 	
+	// Sliders
+	Lots = slider(1,2,1,10,"Lots","Lots per Trade");
+	Stop = PIP*slider(2,15,0,30,"Stop","Stop Loss in PIPs");
+	Capital = slider(3,2000,1000,10000,"Capital","Capital ALlocated");
+	
 	setf(TrainMode,PEAK);
 	
 	set(PLOTNOW);
