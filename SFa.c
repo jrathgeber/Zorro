@@ -59,10 +59,10 @@ function tradeTrend()
 	if(falling(MMI_Smooth)) {
 		
 		if(valley(Trend)) {
-				enterLong(2000);
+				enterLong(Lots);
 				plot("Valley",*Trend,TRIANGLE,GREEN);
 		}	else if(peak(Trend)) {
-				enterShort(2000);
+				enterShort(Lots);
 				plot("Peak",*Trend,TRIANGLE,RED);
 		} 
 	
@@ -86,7 +86,7 @@ function run()
 	//DataSplit = 75;
 	
 	// Sliders
-	Lots = slider(1,2,1,10,"Lots","Lots per Trade");
+	Lots = slider(1,2000,500,10000,"Lots","Lots per Trade");
 	Stop = PIP*slider(2,15,0,30,"Stop","Stop Loss in PIPs");
 	Capital = slider(3,2000,1000,10000,"Capital","Capital ALlocated");
 	
