@@ -4,7 +4,7 @@
 
 	Super Fit USD/CAD
 
-	Trand Only
+	Trend Only
 
 	Jason P Rathgeber
 	
