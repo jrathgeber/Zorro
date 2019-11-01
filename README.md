@@ -1,7 +1,7 @@
 # Zorro
 Repo for my Zorro lite-c code. 
 
-These scripts inside the Zorro trading system : 
+These scripts run inside the Zorro algorithmic trading platform : 
 
 http://www.zorro-trader.com/
 
