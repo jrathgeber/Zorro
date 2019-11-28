@@ -7,14 +7,11 @@ http://www.zorro-trader.com/
 
 Zorro has some nice ML qualities I would like to point out : 
 
-Machine learning
-
-    Native perceptron and decision tree algorithms.
-    Candle pattern analyzer with fuzzy logic algorithm.
-    Machine generated algorithms for export in C code.
-    Direct access to R packages for analysis and machine learning.
-    Deep Learning with Keras/Tensorflow, MxNet, H2O, Deepnet.
-
+    -Native perceptron and decision tree algorithms.
+    -Candle pattern analyzer with fuzzy logic algorithm.
+    -Machine generated algorithms for export in C code.
+    -Direct access to R packages for analysis and machine learning.
+    -Deep Learning with Keras/Tensorflow, MxNet, H2O, Deepnet.
 
 My current on the run live project is simply to get started coding it:
 
