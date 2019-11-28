@@ -18,7 +18,7 @@ Machine learning
 
 My current on the run live project is simply to get started coding it:
 
-* [Zorro](https://github.com/jrathgeber/Zorro/)
+* [Zorro](https://github.com/jrathgeber/Zorro/blob/master/Strategy/J12a.c)
 
 This chart is from live real money trading the Z2 FX counter trend system on Oanda during the summer on 2018.  
 
